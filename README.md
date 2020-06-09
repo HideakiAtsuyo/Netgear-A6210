@@ -9,6 +9,7 @@ To build the driver, follow these steps:
     $ git clone https://github.com/jurobystricky/Netgear-A6210
     $ cd Netgear-A6210
     $ make
+    *if build folder doesn't exist: "sudo apt install linux-headers-`uname -r`"
     $ sudo make install
 
 The driver is mostly tested on 64 bit Ubuntu 15.10 and Debian 8.3 with NETGEAR AC1200
