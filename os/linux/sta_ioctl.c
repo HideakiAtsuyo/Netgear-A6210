@@ -2202,6 +2202,11 @@ int rt28xx_sta_ioctl(struct net_device *net_dev, struct ifreq *rq, int cmd)
 		break;
 #endif
 	case RTPRIV_IOCTL_SET:
+			
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5,1,5))
+	if (access_ok(wrqin->u.data.pointer, wrqin->u.data.length) != TRUE)
+	break;
+#else
 		if (access_ok(VERIFY_READ, wrqin->u.data.pointer, wrqin->u.data.length) != TRUE)
 			break;
 		return rt_ioctl_setparam(net_dev, NULL, NULL, wrqin->u.data.pointer);
