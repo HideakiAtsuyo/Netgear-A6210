@@ -55,3 +55,11 @@ commands from within the repo's folder:
 To remove:
 
     $ sudo dkms remove netgear-a6210/2.5.0 --all
+
+## Changes
+
+https://github.com/jurobystricky/Netgear-A6210/pulls
+
+## If can't work
+
+[HERE](https://github.com/Netgear-A6210-linux-driver/Netgear-A6210)
