@@ -52,31 +52,30 @@ release:
 	@echo ""
 	@echo "*** Building driver without debug messages ***"
 	@echo ""
-	cp -f os/linux/Makefile.6 $(RT28xx_DIR)/os/linux/Makefile
-	$(MAKE) -C $(LINUX_SRC) M=$(RT28xx_DIR)/os/linux modules
+	sudo cp -f os/linux/Makefile.6 $(RT28xx_DIR)/os/linux/Makefile
+	sudo $(MAKE) -C $(LINUX_SRC) M=$(RT28xx_DIR)/os/linux modules
 
 debug:
 	export DBGFLAGS
 	@echo ""
 	@echo "*** Building driver with debug messages ***"
 	@echo ""
-	cp -f os/linux/Makefile.6 $(RT28xx_DIR)/os/linux/Makefile
-	$(MAKE) -C $(LINUX_SRC) DBGFLAGS=-DDBG M=$(RT28xx_DIR)/os/linux modules
+	sudo cp -f os/linux/Makefile.6 $(RT28xx_DIR)/os/linux/Makefile
+	sudo $(MAKE) -C $(LINUX_SRC) DBGFLAGS=-DDBG M=$(RT28xx_DIR)/os/linux modules
 
 clean:
-	cp -f os/linux/Makefile.clean os/linux/Makefile
-	$(MAKE) -C os/linux clean
-	rm -rf os/linux/Makefile
+	sudo cp -f os/linux/Makefile.clean os/linux/Makefile
+	sudo $(MAKE) -C os/linux clean
+	sudo rm -rf os/linux/Makefile
 
 uninstall:
-	$(MAKE) -C $(RT28xx_DIR)/os/linux -f Makefile.6 uninstall
+	sudo $(MAKE) -C $(RT28xx_DIR)/os/linux -f Makefile.6 uninstall
 
 
 install:
-	$(MAKE) -C $(RT28xx_DIR)/os/linux -f Makefile.6 install
+	sudo $(MAKE) -C $(RT28xx_DIR)/os/linux -f Makefile.6 install
 
 .PHONY: $(PHONY)
-
 
 
 
