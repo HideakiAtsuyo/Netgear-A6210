@@ -548,7 +548,13 @@ static int CFG80211_OpsScan(struct wiphy *pWiphy, struct net_device *pNdev,
 
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,31))
 #ifdef CONFIG_STA_SUPPORT
-/*
+
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4,12,0))
+	new_dev_p->needs_free_netdev = true;
+#else
+	new_dev_p->destructor = free_netdev;
+#endif /* LINUX_VERSION_CODE */
+	/*
 ========================================================================
 Routine Description:
 	Join the specified IBSS (or create if necessary). Once done, call
